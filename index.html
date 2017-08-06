@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Product Entry</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">	
+</head>
+<body>
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="myScrollspy">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">The Store</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a  href="#">AddProduct</a></li>
+        <li><a href="edit.html">EditProduct</a></li> 
+        <li><a href="bill.html">Bill</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+<section class="container">
+
+		<h1>Add Products</h1>
+	<div class="row">
+	<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">	
+
+		<form class="form-group" ng-controller="userController" ng-submit="insertItem()">
+			<div class="form-group">	
+				<label for="product_id">Product Code</label>
+				<input type="text" name="id" id="product_id" ng-model="item.id" class="form-control" required>
+			</div>
+			<div class="form-group">	
+				<label for="product_name">Name</label>
+				<input type="text" name="name" id="product_name" ng-model="item.name" class="form-control" required>
+			</div>
+			<div class="form-group">	
+				<label for="product_price">Price</label>
+				<input type="number" min='0' name="price" id="product_price" ng-model="item.price" class="form-control" required>
+			</div>
+			<div class="form-group">	
+				<label for="product_tax">GST(%)</label>
+				<input type="number" min='0' name="tax" id="product_tax" ng-model="item.tax" class="form-control" required>
+			</div>
+
+			<button style="float:right;width:200px;"  type="submit" class="btn btn-md btn-success">Add</button>
+		</form>
+	</div>
+	</div>
+
+</section>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./js/index.js">
+
+	</script>
+</body>
+</html>

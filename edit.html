@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Product Entry</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">	
+
+</head>
+<body ng-app="myApp">
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">The Store</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a  href="index.html">AddProduct</a></li>
+        <li class="active"><a href="#">EditProduct</a></li> 
+        <li><a href="bill.html">Bill</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+<section class="container-fluid">
+		<div class="row">	
+				<h1>Edit Products</h1>
+		</div>
+
+<div class="modal fade" id="updateProduct" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        	<h3 class="modal-title" id="updateProduct">Enter Changes</h3>
+       		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          	<span aria-hidden="true">&times;</span>
+        	</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-group" ng-controller="userController" ng-submit="insertItem()">
+      <div class="form-group">  
+        <label for="product_id">Product Code</label>
+        <input type="text" name="id" id="product_id" ng-model="item.id" class="form-control" disabled>
+      </div>
+      <div class="form-group">  
+        <label for="product_name">Name</label>
+        <input type="text" name="name" id="product_name" ng-model="item.name" class="form-control" required>
+      </div>
+      <div class="form-group">  
+        <label for="product_price">Price</label>
+        <input type="number" min='0' name="price" id="product_price" ng-model="item.price" class="form-control" required>
+      </div>
+      <div class="form-group">  
+        <label for="product_tax">GST(%)</label>
+        <input type="number" min='0' name="tax" id="product_tax" ng-model="item.tax" class="form-control" required>
+      </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<div  ng-controller="ColumnsCtrl" class="container-fluid" id="results">
+    <div class="row" ng-repeat="person in persons" ng-if="$index  >= 0">
+        <div class="col-sm-3 col-md-3"> 
+            <span>Product_Id:</span>
+            <span>{{persons[$index].id}}</span>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <span>Name:</span> 
+            <span>{{persons[$index].name}}</span>
+         </div>
+         <div class="col-sm-2 col-md-2">
+            <span>price:</span> 
+            <span>{{persons[$index].price}}</span>
+         </div>
+          <div class="col-sm-2 col-md-2">
+            <span>GST:</span> 
+            <span>{{persons[$index].tax}}</span>
+         </div>
+         <div class="col-sm-2 col-md-2">
+             <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#updateProduct"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;EDIT</button> 
+         </div>
+    </div>
+</div>
+
+</section>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script type="text/javascript" src="./js/gst.js">
+
+
+</script>
+</body>
+</html>
